@@ -1,0 +1,794 @@
+weapons:
+  Stormcaller:
+    name: "§b§lStormcaller"
+    rarity: "§6§lLEGENDARY"
+    material: TRIDENT
+    custom_model_data: 2001
+    enchant_glow: true
+    lore:
+      - "§7He who wields it commands the skies."
+      - "§7Thunder obeys. Lightning answers."
+      - "§bPassive: §3Static shock aura around caster"
+    passive:
+      particle: ELECTRIC_SPARK
+      sound: ENTITY_LIGHTNING_BOLT_THUNDER
+    l_click:
+      name: "Spark Strike"
+      effect_type: STRIKE
+      damage: 6.0
+      range: 5.0
+      charge_cost: 1
+      cooldown: 4
+      effects:
+        - "SLOWNESS:2:40"
+      particle: ELECTRIC_SPARK
+      sound_cast: ENTITY_LIGHTNING_BOLT_IMPACT
+      sound_impact: ENTITY_PLAYER_ATTACK_CRIT
+    r_click:
+      name: "Lightning Call"
+      effect_type: AOE
+      damage: 7.0
+      range: 6.0
+      charge_cost: 2
+      cooldown: 12
+      effects:
+        - "BLINDNESS:1:40"
+        - "SLOWNESS:1:60"
+      particle: FLASH
+      sound_cast: ENTITY_LIGHTNING_BOLT_THUNDER
+      sound_impact: ENTITY_LIGHTNING_BOLT_IMPACT
+    ultimate:
+      name: "Wrath of the Skies"
+      effect_type: AOE
+      damage: 12.0
+      range: 9.0
+      charge_cost: 5
+      cooldown: 65
+      effects:
+        - "LEVITATION:1:30"
+        - "SLOWNESS:3:80"
+      particle: ELECTRIC_SPARK
+      sound_cast: ENTITY_LIGHTNING_BOLT_THUNDER
+      sound_impact: ENTITY_GENERIC_EXPLODE
+      sound_echo: BLOCK_BEACON_ACTIVATE
+
+  Aurorablaze:
+    name: "§d§lAurorablaze"
+    rarity: "§5§lEPIC"
+    material: NETHERITE_SWORD
+    custom_model_data: 2002
+    enchant_glow: true
+    lore:
+      - "§7The lights of the aurora bound into a blade."
+      - "§7Its warmth heals allies and blinds enemies."
+      - "§dPassive: §5Healing glow for nearby allies"
+    passive:
+      particle: GLOW
+      sound: BLOCK_AMETHYST_BLOCK_CHIME
+    l_click:
+      name: "Aurora Slash"
+      effect_type: STRIKE
+      damage: 6.0
+      range: 4.0
+      charge_cost: 1
+      cooldown: 4
+      effects:
+        - "BLINDNESS:1:40"
+        - "GLOWING:1:80"
+      particle: GLOW
+      sound_cast: BLOCK_AMETHYST_BLOCK_HIT
+      sound_impact: ENTITY_PLAYER_ATTACK_CRIT
+    r_click:
+      name: "Prismatic Burst"
+      effect_type: AOE
+      damage: 4.0
+      range: 5.0
+      charge_cost: 2
+      cooldown: 13
+      effects:
+        - "BLINDNESS:1:60"
+      particle: GLOW_SQUID_INK
+      sound_cast: ENTITY_ALLAY_AMBIENT_WITHOUT_ITEM
+    ultimate:
+      name: "Aurora Storm"
+      effect_type: AOE
+      damage: 10.0
+      range: 8.0
+      charge_cost: 5
+      cooldown: 70
+      effects:
+        - "BLINDNESS:2:100"
+        - "GLOWING:1:120"
+        - "WEAKNESS:1:80"
+      particle: GLOW
+      sound_cast: BLOCK_BEACON_ACTIVATE
+      sound_impact: ENTITY_PLAYER_LEVELUP
+      sound_echo: BLOCK_BEACON_POWER_SELECT
+
+  ZenithLance:
+    name: "§e§lZenith Lance"
+    rarity: "§6§lLEGENDARY"
+    material: NETHERITE_SWORD
+    custom_model_data: 2003
+    enchant_glow: true
+    lore:
+      - "§7Forged at the highest peak where sky meets stars."
+      - "§7A single thrust can pierce the heavens."
+      - "§ePassive: §6Radiant regeneration while held"
+    passive:
+      particle: GLOW
+      sound: BLOCK_BEACON_AMBIENT
+    l_click:
+      name: "Sky Thrust"
+      effect_type: STRIKE
+      damage: 7.0
+      range: 6.0
+      charge_cost: 1
+      cooldown: 4
+      effects:
+        - "GLOWING:1:60"
+      particle: GLOW_SQUID_INK
+      sound_cast: ENTITY_PLAYER_ATTACK_SWEEP
+      sound_impact: ENTITY_PLAYER_ATTACK_CRIT
+    r_click:
+      name: "Heaven's Dash"
+      effect_type: BLINK
+      damage: 0.0
+      range: 9.0
+      charge_cost: 2
+      cooldown: 10
+      effects:
+        - "SPEED:2:80"
+      particle: GLOW
+      sound_cast: ENTITY_ALLAY_AMBIENT_WITHOUT_ITEM
+    ultimate:
+      name: "Celestial Impale"
+      effect_type: STRIKE
+      damage: 12.0
+      range: 18.0
+      charge_cost: 5
+      cooldown: 65
+      effects:
+        - "LEVITATION:1:30"
+        - "SLOWNESS:2:80"
+      particle: GLOW
+      sound_cast: BLOCK_BEACON_ACTIVATE
+      sound_impact: ENTITY_PLAYER_ATTACK_CRIT
+      sound_echo: BLOCK_BEACON_POWER_SELECT
+
+  Thunderwing:
+    name: "§3§lThunderwing"
+    rarity: "§5§lEPIC"
+    material: NETHERITE_CHESTPLATE
+    custom_model_data: 2004
+    enchant_glow: true
+    lore:
+      - "§7Wings woven from captured storm clouds."
+      - "§7Wear it and become the lightning itself."
+      - "§3Passive: §bSpeed burst every 5s of sprinting"
+    passive:
+      particle: ELECTRIC_SPARK
+      sound: ENTITY_PHANTOM_FLAP
+    l_click:
+      name: "Thunder Pulse"
+      effect_type: AOE
+      damage: 5.0
+      range: 3.5
+      charge_cost: 1
+      cooldown: 4
+      effects:
+        - "SLOWNESS:1:40"
+      particle: ELECTRIC_SPARK
+      sound_cast: ENTITY_LIGHTNING_BOLT_IMPACT
+      sound_impact: ENTITY_PLAYER_ATTACK_SWEEP
+    r_click:
+      name: "Storm Surge"
+      effect_type: BLINK
+      damage: 3.0
+      range: 7.0
+      charge_cost: 2
+      cooldown: 11
+      effects:
+        - "SPEED:2:60"
+      particle: CLOUD
+      sound_cast: ENTITY_PHANTOM_FLAP
+    ultimate:
+      name: "Eye of the Storm"
+      effect_type: AOE
+      damage: 11.0
+      range: 8.0
+      charge_cost: 5
+      cooldown: 70
+      effects:
+        - "LEVITATION:1:30"
+        - "BLINDNESS:1:60"
+        - "SLOWNESS:2:80"
+      particle: ELECTRIC_SPARK
+      sound_cast: ENTITY_LIGHTNING_BOLT_THUNDER
+      sound_impact: ENTITY_GENERIC_EXPLODE
+      sound_echo: ENTITY_LIGHTNING_BOLT_THUNDER
+
+  Cloudpiercer:
+    name: "§f§lCloudpiercer"
+    rarity: "§3§lRARE"
+    material: BOW
+    custom_model_data: 2005
+    enchant_glow: false
+    lore:
+      - "§7Arrows fired from this bow never drop."
+      - "§7They travel until they find their mark."
+      - "§fPassive: §7Arrow trails leave white cloud particles"
+    passive:
+      particle: CLOUD
+      sound: ENTITY_ARROW_SHOOT
+    l_click:
+      name: "Sky Shot"
+      effect_type: STRIKE
+      damage: 6.0
+      range: 25.0
+      charge_cost: 1
+      cooldown: 4
+      effects:
+        - "GLOWING:1:80"
+        - "SLOWNESS:1:40"
+      particle: CLOUD
+      sound_cast: ENTITY_ARROW_SHOOT
+      sound_impact: ENTITY_ARROW_HIT
+    r_click:
+      name: "Wind Arrow"
+      effect_type: STRIKE
+      damage: 4.0
+      range: 20.0
+      charge_cost: 2
+      cooldown: 10
+      effects:
+        - "LEVITATION:1:20"
+      particle: CLOUD
+      sound_cast: ENTITY_ARROW_SHOOT
+    ultimate:
+      name: "Storm of Arrows"
+      effect_type: AOE
+      damage: 9.0
+      range: 10.0
+      charge_cost: 5
+      cooldown: 60
+      effects:
+        - "SLOWNESS:2:80"
+        - "GLOWING:1:100"
+      particle: CLOUD
+      sound_cast: ENTITY_ARROW_SHOOT
+      sound_impact: ENTITY_ARROW_HIT
+      sound_echo: BLOCK_BEACON_ACTIVATE
+
+  SolarFlare:
+    name: "§6§lSolar Flare"
+    rarity: "§5§lEPIC"
+    material: NETHERITE_SWORD
+    custom_model_data: 2006
+    enchant_glow: true
+    lore:
+      - "§7A sword that carries the sun's fury."
+      - "§7Blinding light burns through darkness."
+      - "§6Passive: §eRadiant glow pushes back undead"
+    passive:
+      particle: GLOW
+      sound: BLOCK_BEACON_AMBIENT
+    l_click:
+      name: "Solar Slash"
+      effect_type: STRIKE
+      damage: 7.0
+      range: 4.0
+      charge_cost: 1
+      cooldown: 4
+      effects:
+        - "BLINDNESS:1:60"
+        - "GLOWING:1:80"
+      particle: GLOW
+      sound_cast: BLOCK_AMETHYST_BLOCK_HIT
+      sound_impact: ENTITY_PLAYER_ATTACK_CRIT
+    r_click:
+      name: "Flare Burst"
+      effect_type: AOE
+      damage: 5.0
+      range: 5.0
+      charge_cost: 2
+      cooldown: 12
+      effects:
+        - "BLINDNESS:2:60"
+      particle: FIREWORKS_SPARK
+      sound_cast: ENTITY_LIGHTNING_BOLT_IMPACT
+    ultimate:
+      name: "Solar Prominence"
+      effect_type: AOE
+      damage: 11.0
+      range: 8.0
+      charge_cost: 5
+      cooldown: 70
+      effects:
+        - "BLINDNESS:2:100"
+        - "WEAKNESS:2:80"
+        - "GLOWING:1:120"
+      particle: FIREWORKS_SPARK
+      sound_cast: ENTITY_LIGHTNING_BOLT_THUNDER
+      sound_impact: ENTITY_GENERIC_EXPLODE
+      sound_echo: BLOCK_BEACON_ACTIVATE
+
+  ZephyrBow:
+    name: "§a§lZephyr Bow"
+    rarity: "§3§lRARE"
+    material: BOW
+    custom_model_data: 2007
+    enchant_glow: false
+    lore:
+      - "§7Each arrow carries the breath of the wind."
+      - "§7Enemies struck float helplessly upward."
+      - "§aPassive: §2Speed bonus while drawing bow"
+    passive:
+      particle: CLOUD
+      sound: ENTITY_PHANTOM_FLAP
+    l_click:
+      name: "Gust Arrow"
+      effect_type: STRIKE
+      damage: 5.0
+      range: 20.0
+      charge_cost: 1
+      cooldown: 3
+      effects:
+        - "LEVITATION:1:20"
+        - "SLOWNESS:1:40"
+      particle: CLOUD
+      sound_cast: ENTITY_ARROW_SHOOT
+      sound_impact: ENTITY_ARROW_HIT
+    r_click:
+      name: "Tornado Shot"
+      effect_type: AOE
+      damage: 3.0
+      range: 6.0
+      charge_cost: 2
+      cooldown: 12
+      effects:
+        - "LEVITATION:1:30"
+      particle: CLOUD
+      sound_cast: ENTITY_PHANTOM_FLAP
+    ultimate:
+      name: "Hurricane Volley"
+      effect_type: AOE
+      damage: 9.0
+      range: 9.0
+      charge_cost: 5
+      cooldown: 60
+      effects:
+        - "LEVITATION:1:30"
+        - "SLOWNESS:2:80"
+        - "BLINDNESS:1:60"
+      particle: CLOUD
+      sound_cast: ENTITY_LIGHTNING_BOLT_THUNDER
+      sound_impact: ENTITY_PHANTOM_DEATH
+      sound_echo: ENTITY_PHANTOM_FLAP
+
+  TerraShatterer:
+    name: "§2§lTerra Shatterer"
+    rarity: "§5§lEPIC"
+    material: NETHERITE_SHOVEL
+    custom_model_data: 2008
+    enchant_glow: true
+    lore:
+      - "§7The earth itself bends to its swing."
+      - "§7It doesn't mine — it commands."
+      - "§2Passive: §aHaste 1 and ground particles while held"
+    passive:
+      particle: FALLING_DUST
+      sound: BLOCK_STONE_STEP
+    l_click:
+      name: "Quake Slam"
+      effect_type: AOE
+      damage: 6.0
+      range: 3.5
+      charge_cost: 1
+      cooldown: 5
+      effects:
+        - "SLOWNESS:2:60"
+        - "MINING_FATIGUE:1:60"
+      particle: FALLING_DUST
+      sound_cast: BLOCK_STONE_BREAK
+      sound_impact: ENTITY_IRON_GOLEM_ATTACK
+    r_click:
+      name: "Seismic Dash"
+      effect_type: BLINK
+      damage: 3.0
+      range: 6.0
+      charge_cost: 2
+      cooldown: 11
+      effects:
+        - "SLOWNESS:2:40"
+      particle: BLOCK_CRUMBLE
+      sound_cast: BLOCK_ANVIL_LAND
+    ultimate:
+      name: "Continental Shift"
+      effect_type: AOE
+      damage: 11.0
+      range: 7.0
+      charge_cost: 5
+      cooldown: 70
+      effects:
+        - "SLOWNESS:3:80"
+        - "MINING_FATIGUE:2:80"
+        - "LEVITATION:1:20"
+      particle: BLOCK_CRUMBLE
+      sound_cast: ENTITY_IRON_GOLEM_ATTACK
+      sound_impact: BLOCK_ANVIL_LAND
+      sound_echo: ENTITY_IRON_GOLEM_DEATH
+
+  StarlightWand:
+    name: "§f§lStarlight Wand"
+    rarity: "§6§lLEGENDARY"
+    material: STICK
+    custom_model_data: 2009
+    enchant_glow: true
+    lore:
+      - "§7Collected starlight from a thousand nights."
+      - "§7Purges darkness and mends the broken."
+      - "§fPassive: §7Passive regeneration for allies in 5 blocks"
+    passive:
+      particle: GLOW
+      sound: BLOCK_AMETHYST_BLOCK_CHIME
+    l_click:
+      name: "Starfire Bolt"
+      effect_type: STRIKE
+      damage: 5.0
+      range: 12.0
+      charge_cost: 1
+      cooldown: 4
+      effects:
+        - "GLOWING:1:100"
+        - "WEAKNESS:1:60"
+      particle: GLOW
+      sound_cast: ENTITY_ALLAY_AMBIENT_WITHOUT_ITEM
+      sound_impact: BLOCK_AMETHYST_BLOCK_HIT
+    r_click:
+      name: "Radiant Heal"
+      effect_type: HEAL
+      damage: 6.0
+      range: 0.0
+      charge_cost: 2
+      cooldown: 16
+      effects:
+        - "REGENERATION:1:100"
+      particle: GLOW
+      sound_cast: ENTITY_PLAYER_LEVELUP
+    ultimate:
+      name: "Starfall Purge"
+      effect_type: AOE
+      damage: 10.0
+      range: 8.0
+      charge_cost: 5
+      cooldown: 75
+      effects:
+        - "GLOWING:1:120"
+        - "WEAKNESS:2:100"
+      particle: GLOW
+      sound_cast: BLOCK_BEACON_ACTIVATE
+      sound_impact: ENTITY_PLAYER_LEVELUP
+      sound_echo: BLOCK_BEACON_POWER_SELECT
+
+  NimbusHelm:
+    name: "§b§lNimbus Helm"
+    rarity: "§3§lRARE"
+    material: NETHERITE_HELMET
+    custom_model_data: 2010
+    enchant_glow: false
+    lore:
+      - "§7Shaped like a cloud, light as one too."
+      - "§7Grants the freedom of the open sky."
+      - "§bPassive: §3Jump boost and cloud particles"
+    passive:
+      particle: CLOUD
+      sound: ENTITY_PHANTOM_FLAP
+    l_click:
+      name: "Cloud Slam"
+      effect_type: AOE
+      damage: 4.0
+      range: 4.0
+      charge_cost: 1
+      cooldown: 5
+      effects:
+        - "LEVITATION:1:20"
+        - "SLOWNESS:1:40"
+      particle: CLOUD
+      sound_cast: ENTITY_PHANTOM_FLAP
+      sound_impact: ENTITY_PLAYER_ATTACK_SWEEP
+    r_click:
+      name: "Ascension"
+      effect_type: AURA
+      damage: 0.0
+      range: 0.0
+      charge_cost: 2
+      cooldown: 14
+      effects:
+        - "JUMP_BOOST:3:80"
+        - "SPEED:1:80"
+        - "SLOW_FALLING:1:80"
+      particle: CLOUD
+      sound_cast: ENTITY_ALLAY_AMBIENT_WITHOUT_ITEM
+    ultimate:
+      name: "Storm Cloud"
+      effect_type: AOE
+      damage: 9.0
+      range: 7.0
+      charge_cost: 5
+      cooldown: 60
+      effects:
+        - "BLINDNESS:1:60"
+        - "SLOWNESS:2:80"
+        - "LEVITATION:1:30"
+      particle: CLOUD
+      sound_cast: ENTITY_LIGHTNING_BOLT_THUNDER
+      sound_impact: ENTITY_PHANTOM_DEATH
+      sound_echo: ENTITY_PHANTOM_FLAP
+
+  AegisShield:
+    name: "§f§lAegis Shield"
+    rarity: "§5§lEPIC"
+    material: SHIELD
+    custom_model_data: 2011
+    enchant_glow: true
+    lore:
+      - "§7Blessed by the guardian of the sky gate."
+      - "§7Reflects the hubris of those who strike it."
+      - "§fPassive: §7Damage reflect on successful block"
+    passive:
+      particle: GLOW
+      sound: BLOCK_ANVIL_USE
+    l_click:
+      name: "Aegis Bash"
+      effect_type: AOE
+      damage: 5.0
+      range: 3.0
+      charge_cost: 1
+      cooldown: 4
+      effects:
+        - "SLOWNESS:2:40"
+        - "NAUSEA:1:40"
+      particle: GLOW_SQUID_INK
+      sound_cast: BLOCK_ANVIL_USE
+      sound_impact: ENTITY_PLAYER_ATTACK_SWEEP
+    r_click:
+      name: "Divine Guard"
+      effect_type: AURA
+      damage: 0.0
+      range: 0.0
+      charge_cost: 2
+      cooldown: 18
+      effects:
+        - "RESISTANCE:2:100"
+        - "ABSORPTION:2:100"
+      particle: GLOW
+      sound_cast: BLOCK_BEACON_ACTIVATE
+    ultimate:
+      name: "Retribution Wave"
+      effect_type: AOE
+      damage: 11.0
+      range: 7.0
+      charge_cost: 5
+      cooldown: 75
+      effects:
+        - "WEAKNESS:2:100"
+        - "BLINDNESS:1:80"
+      particle: GLOW
+      sound_cast: BLOCK_BEACON_ACTIVATE
+      sound_impact: ENTITY_PLAYER_LEVELUP
+      sound_echo: BLOCK_BEACON_POWER_SELECT
+
+  GenesisPick:
+    name: "§a§lGenesis Pick"
+    rarity: "§6§lLEGENDARY"
+    material: NETHERITE_PICKAXE
+    custom_model_data: 2012
+    enchant_glow: true
+    lore:
+      - "§7Used to carve the first mountain from the void."
+      - "§7Can unmake what it once built."
+      - "§aPassive: §2Haste aura for nearby party members"
+    passive:
+      particle: GLOW_SQUID_INK
+      sound: BLOCK_STONE_STEP
+    l_click:
+      name: "Core Strike"
+      effect_type: STRIKE
+      damage: 7.0
+      range: 4.0
+      charge_cost: 1
+      cooldown: 4
+      effects:
+        - "MINING_FATIGUE:2:80"
+        - "WEAKNESS:1:60"
+      particle: GLOW_SQUID_INK
+      sound_cast: BLOCK_STONE_BREAK
+      sound_impact: ENTITY_IRON_GOLEM_ATTACK
+    r_click:
+      name: "Tectonic Surge"
+      effect_type: AOE
+      damage: 5.0
+      range: 5.0
+      charge_cost: 2
+      cooldown: 12
+      effects:
+        - "SLOWNESS:2:60"
+        - "MINING_FATIGUE:1:60"
+      particle: FALLING_DUST
+      sound_cast: BLOCK_STONE_BREAK
+    ultimate:
+      name: "Genesis Quake"
+      effect_type: AOE
+      damage: 12.0
+      range: 8.0
+      charge_cost: 5
+      cooldown: 80
+      effects:
+        - "SLOWNESS:3:100"
+        - "MINING_FATIGUE:3:80"
+        - "LEVITATION:1:20"
+      particle: BLOCK_CRUMBLE
+      sound_cast: ENTITY_IRON_GOLEM_ATTACK
+      sound_impact: BLOCK_ANVIL_LAND
+      sound_echo: ENTITY_IRON_GOLEM_DEATH
+
+  WindShear:
+    name: "§a§lWind Shear"
+    rarity: "§5§lEPIC"
+    material: NETHERITE_SWORD
+    custom_model_data: 2013
+    enchant_glow: true
+    lore:
+      - "§7A blade honed by a thousand wind currents."
+      - "§7Cut through the air before the air cuts back."
+      - "§aPassive: §2Speed 1 while sprinting with this blade"
+    passive:
+      particle: CLOUD
+      sound: ENTITY_PHANTOM_FLAP
+    l_click:
+      name: "Wind Cut"
+      effect_type: STRIKE
+      damage: 6.0
+      range: 5.0
+      charge_cost: 1
+      cooldown: 3
+      effects:
+        - "SLOWNESS:1:40"
+      particle: CLOUD
+      sound_cast: ENTITY_PHANTOM_FLAP
+      sound_impact: ENTITY_PLAYER_ATTACK_CRIT
+    r_click:
+      name: "Gale Rush"
+      effect_type: BLINK
+      damage: 2.0
+      range: 8.0
+      charge_cost: 2
+      cooldown: 10
+      effects:
+        - "SPEED:2:80"
+      particle: CLOUD
+      sound_cast: ENTITY_PHANTOM_FLAP
+    ultimate:
+      name: "Tempest Barrage"
+      effect_type: AOE
+      damage: 10.0
+      range: 7.0
+      charge_cost: 5
+      cooldown: 65
+      effects:
+        - "LEVITATION:1:30"
+        - "SLOWNESS:2:80"
+        - "BLINDNESS:1:60"
+      particle: CLOUD
+      sound_cast: ENTITY_LIGHTNING_BOLT_THUNDER
+      sound_impact: ENTITY_PHANTOM_DEATH
+      sound_echo: ENTITY_PHANTOM_FLAP
+
+  GeneratorKey:
+    name: "§e§lGenerator Key"
+    rarity: "§3§lRARE"
+    material: TRIPWIRE_HOOK
+    custom_model_data: 2014
+    enchant_glow: false
+    lore:
+      - "§7Unlocks the fundamental forces of nature."
+      - "§7In the right hands, energy itself obeys."
+      - "§ePassive: §6Energy regen aura (charge regens 2x faster)"
+    passive:
+      particle: ELECTRIC_SPARK
+      sound: BLOCK_BEACON_AMBIENT
+    l_click:
+      name: "Discharge"
+      effect_type: AOE
+      damage: 4.0
+      range: 4.0
+      charge_cost: 1
+      cooldown: 4
+      effects:
+        - "SLOWNESS:1:40"
+        - "WEAKNESS:1:60"
+      particle: ELECTRIC_SPARK
+      sound_cast: ENTITY_LIGHTNING_BOLT_IMPACT
+      sound_impact: ENTITY_PLAYER_ATTACK_SWEEP
+    r_click:
+      name: "Overcharge"
+      effect_type: AURA
+      damage: 0.0
+      range: 0.0
+      charge_cost: 2
+      cooldown: 14
+      effects:
+        - "SPEED:2:80"
+        - "STRENGTH:1:80"
+        - "HASTE:1:80"
+      particle: ELECTRIC_SPARK
+      sound_cast: BLOCK_BEACON_ACTIVATE
+    ultimate:
+      name: "Power Surge"
+      effect_type: AOE
+      damage: 9.0
+      range: 8.0
+      charge_cost: 5
+      cooldown: 60
+      effects:
+        - "SLOWNESS:2:80"
+        - "WEAKNESS:2:80"
+        - "BLINDNESS:1:60"
+      particle: ELECTRIC_SPARK
+      sound_cast: ENTITY_LIGHTNING_BOLT_THUNDER
+      sound_impact: ENTITY_GENERIC_EXPLODE
+      sound_echo: BLOCK_BEACON_ACTIVATE
+
+  CelestialWrath:
+    name: "§6§lCelestial Wrath"
+    rarity: "§6§lLEGENDARY"
+    material: NETHERITE_AXE
+    custom_model_data: 2015
+    enchant_glow: true
+    lore:
+      - "§7The final judgment of the heavens made physical."
+      - "§7When it falls, empires crumble beneath the light."
+      - "§6Passive: §eGolden shockwave on every 5th hit"
+    passive:
+      particle: GLOW
+      sound: BLOCK_BEACON_AMBIENT
+    l_click:
+      name: "Heaven's Cleave"
+      effect_type: STRIKE
+      damage: 8.0
+      range: 4.0
+      charge_cost: 1
+      cooldown: 5
+      effects:
+        - "WEAKNESS:1:60"
+        - "GLOWING:1:80"
+      particle: GLOW
+      sound_cast: ITEM_AXE_SCRAPE
+      sound_impact: ENTITY_PLAYER_ATTACK_CRIT
+    r_click:
+      name: "Divine Descent"
+      effect_type: BLINK
+      damage: 4.0
+      range: 6.0
+      charge_cost: 2
+      cooldown: 12
+      effects:
+        - "STRENGTH:1:80"
+      particle: GLOW_SQUID_INK
+      sound_cast: ENTITY_ALLAY_AMBIENT_WITHOUT_ITEM
+    ultimate:
+      name: "Meteor Strike"
+      effect_type: AOE
+      damage: 12.0
+      range: 9.0
+      charge_cost: 5
+      cooldown: 85
+      effects:
+        - "LEVITATION:1:30"
+        - "BLINDNESS:2:100"
+        - "WEAKNESS:2:100"
+      particle: GLOW
+      sound_cast: ENTITY_LIGHTNING_BOLT_THUNDER
+      sound_impact: ENTITY_GENERIC_EXPLODE
+      sound_echo: BLOCK_BEACON_ACTIVATE
