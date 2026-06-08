@@ -1,0 +1,73 @@
+settings:
+  global_cooldown_ms: 800
+  max_charge: 10
+  charge_regen_ticks: 60
+  charge_regen_amount: 1
+  enable_bedrock_support: true
+  log_skill_usage: false
+
+disabled_worlds:
+  - "lobby"
+  - "spawn"
+
+weapons:
+  Stormcaller:
+    enabled: true
+    damage_multiplier: 1.0
+    cooldown_multiplier: 1.0
+  Aurorablaze:
+    enabled: true
+    damage_multiplier: 1.0
+    cooldown_multiplier: 1.0
+  ZenithLance:
+    enabled: true
+    damage_multiplier: 1.0
+    cooldown_multiplier: 1.0
+  Thunderwing:
+    enabled: true
+    damage_multiplier: 1.0
+    cooldown_multiplier: 1.0
+  Cloudpiercer:
+    enabled: true
+    damage_multiplier: 1.0
+    cooldown_multiplier: 1.0
+  SolarFlare:
+    enabled: true
+    damage_multiplier: 1.0
+    cooldown_multiplier: 1.0
+  ZephyrBow:
+    enabled: true
+    damage_multiplier: 1.0
+    cooldown_multiplier: 1.0
+  TerraShatterer:
+    enabled: true
+    damage_multiplier: 1.0
+    cooldown_multiplier: 1.0
+  StarlightWand:
+    enabled: true
+    damage_multiplier: 1.0
+    cooldown_multiplier: 1.0
+  NimbusHelm:
+    enabled: true
+    damage_multiplier: 1.0
+    cooldown_multiplier: 1.0
+  AegisShield:
+    enabled: true
+    damage_multiplier: 1.0
+    cooldown_multiplier: 1.0
+  GenesisPick:
+    enabled: true
+    damage_multiplier: 1.0
+    cooldown_multiplier: 1.0
+  WindShear:
+    enabled: true
+    damage_multiplier: 1.0
+    cooldown_multiplier: 1.0
+  GeneratorKey:
+    enabled: true
+    damage_multiplier: 1.0
+    cooldown_multiplier: 1.0
+  CelestialWrath:
+    enabled: true
+    damage_multiplier: 1.0
+    cooldown_multiplier: 1.0
