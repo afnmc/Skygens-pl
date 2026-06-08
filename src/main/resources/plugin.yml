@@ -1,0 +1,31 @@
+name: SkygenSkills
+version: 1.0.0
+main: com.rpg.skygen.SkygenPlugin
+api-version: '1.21'
+description: Celestial RPG weapon skill system
+authors: [Afn_mc,AztheraSMP]
+softdepend: [floodgate, Geyser-Spigot]
+
+commands:
+  skygenweapon:
+    description: Give a Skygen weapon to a player
+    usage: /skygenweapon <player> <weaponId>
+    permission: skygen.admin.give
+  skygenreload:
+    description: Reload SkygenSkills config
+    usage: /skygenreload
+    permission: skygen.admin.reload
+  skygengui:
+    description: Open weapon give selection GUI
+    usage: /skygengui
+    permission: skygen.admin.gui
+
+permissions:
+  skygen.admin.give:
+    default: op
+  skygen.admin.reload:
+    default: op
+  skygen.admin.gui:
+    default: op
+  skygen.use:
+    default: true
