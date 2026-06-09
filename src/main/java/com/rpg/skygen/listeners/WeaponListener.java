@@ -23,14 +23,14 @@ public class WeaponListener implements Listener {
 
     private final SkygenPlugin plugin;
 
-    private final Map<UUID, Integer>  comboCount     = new HashMap<>();
-    private final Map<UUID, Long>     comboTimer     = new HashMap<>();
+    private final Map<UUID, Integer> comboCount = new HashMap<>();
+    private final Map<UUID, Long> comboTimer = new HashMap<>();
     private final Map<UUID, Map<String, Long>> skillCooldowns = new HashMap<>();
-    private final Map<UUID, Long>     globalCd       = new HashMap<>();
+    private final Map<UUID, Long> globalCd = new HashMap<>();
 
-    private static final long   COMBO_WINDOW_MS  = 2500L;
-    private static final int    COMBO_PASSIVE_AT = 4;
-    private static final long   GLOBAL_CD_MS     = 600L;
+    private static final long COMBO_WINDOW_MS = 2500L;
+    private static final int COMBO_PASSIVE_AT = 4;
+    private static final long GLOBAL_CD_MS = 600L;
     private static final double BASIC_ATTACK_DMG = 6.0;
 
     public WeaponListener(SkygenPlugin plugin) {
@@ -104,20 +104,20 @@ public class WeaponListener implements Listener {
                 .getString("weapons." + weaponId + ".passive.particle", "ELECTRIC_SPARK");
 
         switch (weaponId) {
-            case "Stormcaller"    -> passiveStormcaller(caster, lastTarget, ptc);
-            case "Aurorablaze"    -> passiveAurorablaze(caster, ptc);
-            case "ZenithLance"    -> passiveZenithLance(caster, lastTarget, ptc);
-            case "Thunderwing"    -> passiveThunderwing(caster, ptc);
-            case "Cloudpiercer"   -> passiveCloudpiercer(caster, lastTarget, ptc);
-            case "SolarFlare"     -> passiveSolarFlare(caster, ptc);
-            case "ZephyrBow"      -> passiveZephyrBow(caster, lastTarget, ptc);
+            case "Stormcaller" -> passiveStormcaller(caster, lastTarget, ptc);
+            case "Aurorablaze" -> passiveAurorablaze(caster, ptc);
+            case "ZenithLance" -> passiveZenithLance(caster, lastTarget, ptc);
+            case "Thunderwing" -> passiveThunderwing(caster, ptc);
+            case "Cloudpiercer" -> passiveCloudpiercer(caster, lastTarget, ptc);
+            case "SolarFlare" -> passiveSolarFlare(caster, ptc);
+            case "ZephyrBow" -> passiveZephyrBow(caster, lastTarget, ptc);
             case "TerraShatterer" -> passiveTerraShatterer(caster, lastTarget, ptc);
-            case "StarlightWand"  -> passiveStarlightWand(caster, ptc);
-            case "NimbusHelm"     -> passiveNimbusHelm(caster, ptc);
-            case "AegisShield"    -> passiveAegisShield(caster, ptc);
-            case "GenesisPick"    -> passiveGenesisPick(caster, lastTarget, ptc);
-            case "WindShear"      -> passiveWindShear(caster, lastTarget, ptc);
-            case "GeneratorKey"   -> passiveGeneratorKey(caster, ptc);
+            case "StarlightWand" -> passiveStarlightWand(caster, ptc);
+            case "NimbusHelm" -> passiveNimbusHelm(caster, ptc);
+            case "AegisShield" -> passiveAegisShield(caster, ptc);
+            case "GenesisPick" -> passiveGenesisPick(caster, lastTarget, ptc);
+            case "WindShear" -> passiveWindShear(caster, lastTarget, ptc);
+            case "GeneratorKey" -> passiveGeneratorKey(caster, ptc);
             case "CelestialWrath" -> passiveCelestialWrath(caster, lastTarget, ptc);
             default -> {
                 ParticleUtils.spawnBurst(ptc, caster.getLocation().add(0, 1.5, 0), 20, 0.5, 0.5);
@@ -458,22 +458,22 @@ public class WeaponListener implements Listener {
         SoundUtils.play("ENTITY_LIGHTNING_BOLT_THUNDER", c, 1.0f, 1.2f);
     }
 
-    // ═══════════════════════ SKYGEN SKILL EXECUTOR ════════════════════════
+    // ─────────────────────────── SKILL EXECUTOR ────────────────────────────
 
     private void executeSkill(Player caster, Entity primaryTarget, String weaponId, String slot) {
-        String path      = "weapons." + weaponId + "." + slot;
-        double rawDmg    = plugin.getWeaponsConfig().getDouble(path + ".damage", 0);
-        double mult      = plugin.getConfig().getDouble("weapons." + weaponId + ".damage_multiplier", 1.0);
-        double damage    = Math.min(rawDmg * mult, slot.equals("ultimate") ? 12.0 : 8.0);
-        double range     = plugin.getWeaponsConfig().getDouble(path + ".range", 4.0);
-        String particle  = plugin.getWeaponsConfig().getString(path + ".particle", "CLOUD");
-        String sCast     = plugin.getWeaponsConfig().getString(path + ".sound_cast");
-        String sHit      = plugin.getWeaponsConfig().getString(path + ".sound_impact");
-        String sEcho     = plugin.getWeaponsConfig().getString(path + ".sound_echo");
+        String path = "weapons." + weaponId + "." + slot;
+        double rawDmg = plugin.getWeaponsConfig().getDouble(path + ".damage", 0);
+        double mult = plugin.getConfig().getDouble("weapons." + weaponId + ".damage_multiplier", 1.0);
+        double damage = Math.min(rawDmg * mult, slot.equals("ultimate") ? 12.0 : 8.0);
+        double range = plugin.getWeaponsConfig().getDouble(path + ".range", 4.0);
+        String particle = plugin.getWeaponsConfig().getString(path + ".particle", "CLOUD");
+        String sCast = plugin.getWeaponsConfig().getString(path + ".sound_cast");
+        String sHit = plugin.getWeaponsConfig().getString(path + ".sound_impact");
+        String sEcho = plugin.getWeaponsConfig().getString(path + ".sound_echo");
         String skillName = plugin.getWeaponsConfig().getString(path + ".name", slot);
         List<String> efx = plugin.getWeaponsConfig().getStringList(path + ".effects");
 
-        caster.sendActionBar("§b✦ §f" + skillName + " §7► §bACTIVED!");
+        caster.sendActionBar("§b✦ §f" + skillName + " §7► §bACTIVATED!");
         if (sCast != null) SoundUtils.play(sCast, caster.getLocation());
 
         boolean handled = dispatchCinematicSkill(caster, weaponId, slot, damage, range, particle, efx, sCast, sHit, sEcho);
@@ -490,15 +490,15 @@ public class WeaponListener implements Listener {
     private boolean dispatchCinematicSkill(Player p, String wid, String slot,
                                            double dmg, double range, String ptc,
                                            List<String> efx, String sCast, String sHit, String sEcho) {
-        return switch (wid + ":" + slot) {
-
-            // ── STORMCALLER ──
-            case "Stormcaller:r_click" -> {
+        String comboKey = wid + ":" + slot;
+        switch (comboKey) {
+            case "Stormcaller:r_click": {
                 Location c = p.getLocation().clone();
                 ParticleUtils.spawnRing("ELECTRIC_SPARK", c, range * 0.9, 30);
-                int[] hits = {0};
+                int hits = 0;
                 for (Entity e : p.getWorld().getNearbyEntities(c, range, range, range)) {
-                    if (!(e instanceof LivingEntity le) || le == p || hits[0]++ >= 8) continue;
+                    if (!(e instanceof LivingEntity le) || le == p || hits >= 8) continue;
+                    hits++;
                     le.damage(dmg, p);
                     applyEffects(le, efx);
                     le.getWorld().strikeLightningEffect(le.getLocation());
@@ -507,9 +507,9 @@ public class WeaponListener implements Listener {
                             SoundUtils.play(sHit != null ? sHit : "ENTITY_LIGHTNING_BOLT_IMPACT",
                                     le.getLocation(), 0.8f, 1.0f), 1L);
                 }
-                yield true;
+                return true;
             }
-            case "Stormcaller:ultimate" -> {
+            case "Stormcaller:ultimate": {
                 Location c = p.getLocation().clone();
                 SoundUtils.play(sCast != null ? sCast : "ENTITY_LIGHTNING_BOLT_THUNDER", c, 1.2f, 0.6f);
                 new BukkitRunnable() {
@@ -532,11 +532,9 @@ public class WeaponListener implements Listener {
                         if (t % 5 == 0 && sHit != null) SoundUtils.play(sHit, c, 0.6f, 0.8f + t * 0.02f);
                     }
                 }.runTaskTimer(plugin, 0L, 2L);
-                yield true;
+                return true;
             }
-
-            // ── ZENITH LANCE ──
-            case "ZenithLance:r_click" -> {
+            case "ZenithLance:r_click": {
                 Location origin = p.getLocation().clone();
                 Vector fwd = p.getLocation().getDirection().normalize().multiply(range);
                 ParticleUtils.spawnBurst("GLOW_SQUID_INK", origin, 25, 0.4, 0.4);
@@ -544,9 +542,9 @@ public class WeaponListener implements Listener {
                 applyEffects(p, efx);
                 if (sHit != null) Bukkit.getScheduler().runTaskLater(plugin,
                         () -> SoundUtils.play(sHit, p.getLocation()), 7L);
-                yield true;
+                return true;
             }
-            case "ZenithLance:ultimate" -> {
+            case "ZenithLance:ultimate": {
                 Location origin = p.getLocation().clone().add(0, 1.2, 0);
                 Vector dir = p.getLocation().getDirection().normalize();
                 SoundUtils.play(sCast != null ? sCast : "BLOCK_BEACON_ACTIVATE", origin, 1.0f, 1.2f);
@@ -570,11 +568,9 @@ public class WeaponListener implements Listener {
                         }
                     }
                 }.runTaskTimer(plugin, 0L, 1L);
-                yield true;
+                return true;
             }
-
-            // ── SOLAR FLARE ──
-            case "SolarFlare:r_click" -> {
+            case "SolarFlare:r_click": {
                 Location c = p.getLocation().clone();
                 new BukkitRunnable() {
                     double r = 0.5;
@@ -591,9 +587,9 @@ public class WeaponListener implements Listener {
                     }
                 }.runTaskTimer(plugin, 0L, 2L);
                 if (sHit != null) SoundUtils.play(sHit, c);
-                yield true;
+                return true;
             }
-            case "SolarFlare:ultimate" -> {
+            case "SolarFlare:ultimate": {
                 Location c = p.getLocation().clone();
                 SoundUtils.play(sCast != null ? sCast : "ENTITY_LIGHTNING_BOLT_THUNDER", c, 1.2f, 0.8f);
                 c.getWorld().strikeLightningEffect(c);
@@ -616,11 +612,9 @@ public class WeaponListener implements Listener {
                         if (sHit != null) SoundUtils.play(sHit, c, 0.8f, 0.7f + wave * 0.1f);
                     }
                 }.runTaskTimer(plugin, 0L, 8L);
-                yield true;
+                return true;
             }
-
-            // ── CELESTIAL WRATH ──
-            case "CelestialWrath:r_click" -> {
+            case "CelestialWrath:r_click": {
                 Entity t = getNearestEnemy(p, (int) range);
                 if (t != null) {
                     Location at = t.getLocation().clone().add(0, 5, 0);
@@ -645,9 +639,9 @@ public class WeaponListener implements Listener {
                         }, 8L);
                     }, 3L);
                 }
-                yield true;
+                return true;
             }
-            case "CelestialWrath:ultimate" -> {
+            case "CelestialWrath:ultimate": {
                 Location c = p.getLocation().clone();
                 SoundUtils.play(sCast != null ? sCast : "ENTITY_LIGHTNING_BOLT_THUNDER", c, 1.2f, 0.6f);
                 new BukkitRunnable() {
@@ -675,11 +669,9 @@ public class WeaponListener implements Listener {
                         current.getWorld().spawnParticle(Particle.FIREWORKS_SPARK, current, 5, 0.2, 0.2, 0.2, 0.1);
                     }
                 }.runTaskTimer(plugin, 0L, 1L);
-                yield true;
+                return true;
             }
-
-            // ── WIND SHEAR ──
-            case "WindShear:r_click" -> {
+            case "WindShear:r_click": {
                 Vector fwd = p.getLocation().getDirection().normalize();
                 p.setVelocity(fwd.multiply(range * 0.65).setY(0.25));
                 applyEffects(p, efx);
@@ -698,9 +690,9 @@ public class WeaponListener implements Listener {
                 }.runTaskTimer(plugin, 0L, 1L);
                 if (sHit != null) Bukkit.getScheduler().runTaskLater(plugin,
                         () -> SoundUtils.play(sHit, p.getLocation()), 8L);
-                yield true;
+                return true;
             }
-            case "WindShear:ultimate" -> {
+            case "WindShear:ultimate": {
                 Location c = p.getLocation().clone();
                 SoundUtils.play(sCast != null ? sCast : "ENTITY_LIGHTNING_BOLT_THUNDER", c, 1.0f, 0.7f);
                 new BukkitRunnable() {
@@ -729,11 +721,11 @@ public class WeaponListener implements Listener {
                         if (t % 10 == 0 && sHit != null) SoundUtils.play(sHit, c, 0.6f, 0.9f + t * 0.01f);
                     }
                 }.runTaskTimer(plugin, 0L, 1L);
-                yield true;
+                return true;
             }
-
-            default -> yield false;
-        };
+            default:
+                return false;
+        }
     }
 
     // ═══════════════════════ GENERIC SKILL EXEC (fallback) ════════════════
@@ -755,7 +747,8 @@ public class WeaponListener implements Listener {
                 ParticleUtils.spawnRing(particle, loc, range * 0.9, 30);
                 int hits = 0;
                 for (Entity e : caster.getWorld().getNearbyEntities(loc, range, range, range)) {
-                    if (!(e instanceof LivingEntity le) || le == caster || hits++ >= 8) continue;
+                    if (!(e instanceof LivingEntity le) || le == caster || hits >= 8) continue;
+                    hits++;
                     le.damage(damage, caster);
                     applyEffects(le, efx);
                     ParticleUtils.spawnBurst(particle, le.getLocation().add(0, 1, 0), 10, 0.3, 0.3);
@@ -792,7 +785,8 @@ public class WeaponListener implements Listener {
             case "PULL" -> {
                 int hits = 0;
                 for (Entity e : caster.getWorld().getNearbyEntities(loc, range, range, range)) {
-                    if (!(e instanceof LivingEntity le) || le == caster || hits++ >= 8) continue;
+                    if (!(e instanceof LivingEntity le) || le == caster || hits >= 8) continue;
+                    hits++;
                     Vector pull = loc.toVector().subtract(le.getLocation().toVector()).normalize().multiply(2.0).setY(0.4);
                     le.setVelocity(pull);
                     le.damage(damage, caster);
@@ -805,7 +799,8 @@ public class WeaponListener implements Listener {
                 double totalHeal = 0;
                 int hits = 0;
                 for (Entity e : caster.getWorld().getNearbyEntities(loc, range, range, range)) {
-                    if (!(e instanceof LivingEntity le) || le == caster || hits++ >= 8) continue;
+                    if (!(e instanceof LivingEntity le) || le == caster || hits >= 8) continue;
+                    hits++;
                     le.damage(damage, caster);
                     applyEffects(le, efx);
                     totalHeal += damage * 0.3;
@@ -846,7 +841,7 @@ public class WeaponListener implements Listener {
             long left = expiry - now;
             if (i > 0) sb.append(" §8| ");
             if (left > 0) sb.append("§7").append(icons[i]).append(" §c").append(left / 1000L + 1).append("s");
-            else          sb.append(icons[i]).append(" §aREADY");
+            else sb.append(icons[i]).append(" §aREADY");
         }
         return sb.toString();
     }
@@ -880,27 +875,27 @@ public class WeaponListener implements Listener {
             if (t != null) return t;
         } catch (Exception ignored) {}
         return switch (name.toUpperCase()) {
-            case "SLOWNESS"        -> PotionEffectType.SLOWNESS;
-            case "WEAKNESS"        -> PotionEffectType.WEAKNESS;
-            case "BLINDNESS"       -> PotionEffectType.BLINDNESS;
-            case "WITHER"          -> PotionEffectType.WITHER;
-            case "POISON"          -> PotionEffectType.POISON;
-            case "LEVITATION"      -> PotionEffectType.LEVITATION;
-            case "GLOWING"         -> PotionEffectType.GLOWING;
-            case "NAUSEA"          -> PotionEffectType.NAUSEA;
-            case "HUNGER"          -> PotionEffectType.HUNGER;
-            case "MINING_FATIGUE"  -> PotionEffectType.MINING_FATIGUE;
-            case "RESISTANCE"      -> PotionEffectType.RESISTANCE;
+            case "SLOWNESS" -> PotionEffectType.SLOWNESS;
+            case "WEAKNESS" -> PotionEffectType.WEAKNESS;
+            case "BLINDNESS" -> PotionEffectType.BLINDNESS;
+            case "WITHER" -> PotionEffectType.WITHER;
+            case "POISON" -> PotionEffectType.POISON;
+            case "LEVITATION" -> PotionEffectType.LEVITATION;
+            case "GLOWING" -> PotionEffectType.GLOWING;
+            case "NAUSEA" -> PotionEffectType.NAUSEA;
+            case "HUNGER" -> PotionEffectType.HUNGER;
+            case "MINING_FATIGUE" -> PotionEffectType.MINING_FATIGUE;
+            case "RESISTANCE" -> PotionEffectType.RESISTANCE;
             case "FIRE_RESISTANCE" -> PotionEffectType.FIRE_RESISTANCE;
-            case "SPEED"           -> PotionEffectType.SPEED;
-            case "STRENGTH"        -> PotionEffectType.STRENGTH;
-            case "JUMP_BOOST"      -> PotionEffectType.JUMP_BOOST;
-            case "SLOW_FALLING"    -> PotionEffectType.SLOW_FALLING;
-            case "REGENERATION"    -> PotionEffectType.REGENERATION;
-            case "ABSORPTION"      -> PotionEffectType.ABSORPTION;
-            case "HASTE"           -> PotionEffectType.HASTE;
-            case "DARKNESS"        -> PotionEffectType.DARKNESS;
-            default                -> null;
+            case "SPEED" -> PotionEffectType.SPEED;
+            case "STRENGTH" -> PotionEffectType.STRENGTH;
+            case "JUMP_BOOST" -> PotionEffectType.JUMP_BOOST;
+            case "SLOW_FALLING" -> PotionEffectType.SLOW_FALLING;
+            case "REGENERATION" -> PotionEffectType.REGENERATION;
+            case "ABSORPTION" -> PotionEffectType.ABSORPTION;
+            case "HASTE" -> PotionEffectType.HASTE;
+            case "DARKNESS" -> PotionEffectType.DARKNESS;
+            default -> null;
         };
     }
 
@@ -936,7 +931,7 @@ public class WeaponListener implements Listener {
     }
 
     private boolean isWeaponEnabled(String id) {
-        return plugin.getConfig().getBoolean("weapons." + id + ".enabled", true);
+        return plugin.getWeaponsConfig().getBoolean("weapons." + id + ".enabled", true);
     }
 
     private Entity getNearestEnemy(Player p, int range) {
@@ -970,4 +965,5 @@ public class WeaponListener implements Listener {
         }
         return null;
     }
-                }
+}
+
