@@ -74,7 +74,8 @@ public class ChargeManager {
         double max    = plugin.getConfig().getInt("settings.max_charge", 10);
         bar.setTitle(buildTitle(p));
         bar.setProgress(Math.max(0.0, Math.min(1.0, charge / max)));
-        bar.setColor(charge >= 5 ? BarColor.BLUE : (charge >= 2 ? BarColor.CYAN : BarColor.WHITE));
+        // FIX: Ganti BarColor.CYAN → BarColor.GREEN
+        bar.setColor(charge >= 5 ? BarColor.BLUE : (charge >= 2 ? BarColor.GREEN : BarColor.WHITE));
     }
 
     private String buildTitle(Player p) {
@@ -99,4 +100,4 @@ public class ChargeManager {
             }
         }.runTaskTimer(plugin, ticks, ticks);
     }
-}
+            }
