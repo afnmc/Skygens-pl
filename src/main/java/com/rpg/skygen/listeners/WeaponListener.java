@@ -73,6 +73,9 @@ public class WeaponListener implements Listener {
         double mult       = plugin.getConfig().getDouble("weapons." + weaponId + ".damage_multiplier", 1.0);
         double damage     = rawDamage * mult;
         damage = skillType.equals("ultimate") ? Math.min(damage, MAX_DAMAGE_ULTIMATE) : Math.min(damage, MAX_DAMAGE_SKILL);
+        
+        // FIX: Buat final variable untuk lambda
+        final double finalDamage = damage;
 
         double range     = plugin.getWeaponsConfig().getDouble(path + ".range", 4.0);
         String particle  = plugin.getWeaponsConfig().getString(path + ".particle", "SMOKE");
@@ -92,7 +95,7 @@ public class WeaponListener implements Listener {
             case "STRIKE" -> {
                 Entity target = (primaryTarget != null) ? primaryTarget : getTargetInLOS(caster, (int) range);
                 if (target instanceof LivingEntity living && living != caster) {
-                    living.damage(damage, caster);
+                    living.damage(finalDamage, caster);
                     applyEffects(living, effects);
                     ParticleUtils.spawnBurst(particle, living.getLocation().add(0, 1, 0), 30, 0.4, 0.4);
                     if (soundHit != null) SoundUtils.play(soundHit, living.getLocation());
@@ -105,7 +108,7 @@ public class WeaponListener implements Listener {
                 int hits = 0;
                 for (Entity ent : caster.getWorld().getNearbyEntities(caster.getLocation(), range, range, range)) {
                     if (!(ent instanceof LivingEntity living) || living == caster || hits >= MAX_TARGETS) continue;
-                    living.damage(damage, caster);
+                    living.damage(finalDamage, caster);
                     applyEffects(living, effects);
                     ParticleUtils.spawnBurst(particle, living.getLocation().add(0, 1, 0), 15, 0.3, 0.3);
                     hits++;
@@ -118,9 +121,9 @@ public class WeaponListener implements Listener {
                 int hits = 0;
                 for (Entity ent : caster.getWorld().getNearbyEntities(caster.getLocation(), range, range, range)) {
                     if (!(ent instanceof LivingEntity living) || living == caster || hits >= MAX_TARGETS) continue;
-                    living.damage(damage, caster);
+                    living.damage(finalDamage, caster);
                     applyEffects(living, effects);
-                    totalHealed += damage * 0.3;
+                    totalHealed += finalDamage * 0.3;
                     hits++;
                 }
                 double heal = Math.min(totalHealed, 6.0);
@@ -132,11 +135,11 @@ public class WeaponListener implements Listener {
                 Vector dir = caster.getLocation().getDirection().normalize().multiply(range);
                 caster.setVelocity(dir);
                 ParticleUtils.spawnBurst(particle, origin, 50, 0.5, 0.5);
-                if (damage > 0) {
+                if (finalDamage > 0) {
                     Bukkit.getScheduler().runTaskLater(plugin, () -> {
                         for (Entity ent : caster.getWorld().getNearbyEntities(caster.getLocation(), 2.5, 2.5, 2.5)) {
                             if (ent instanceof LivingEntity living && living != caster) {
-                                living.damage(damage, caster);
+                                living.damage(finalDamage, caster);
                                 applyEffects(living, effects);
                             }
                         }
@@ -153,7 +156,7 @@ public class WeaponListener implements Listener {
                     if (!(ent instanceof LivingEntity living) || living == caster || hits >= MAX_TARGETS) continue;
                     Vector pull = caster.getLocation().toVector().subtract(living.getLocation().toVector()).normalize().multiply(1.8).setY(0.4);
                     living.setVelocity(pull);
-                    living.damage(damage, caster);
+                    living.damage(finalDamage, caster);
                     applyEffects(living, effects);
                     hits++;
                 }
@@ -164,7 +167,7 @@ public class WeaponListener implements Listener {
                 caster.sendActionBar("§a✦ §f" + skillName + " §7► §aACTIVE!");
             }
             case "HEAL" -> {
-                double heal = Math.min(damage, 6.0);
+                double heal = Math.min(finalDamage, 6.0);
                 caster.setHealth(Math.min(caster.getMaxHealth(), caster.getHealth() + heal));
                 ParticleUtils.spawnBurst("HEART", caster.getLocation().add(0, 2, 0), 12, 0.4, 0.4);
                 applyEffectsToPlayer(caster, effects);
@@ -259,4 +262,4 @@ public class WeaponListener implements Listener {
         }
         return null;
     }
-          }
+                        }
